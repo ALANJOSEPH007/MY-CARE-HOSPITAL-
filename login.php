@@ -10,6 +10,29 @@
         
     <title>Login</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer>
+</script>
+    <script type="text/javascript">
+ 
+ $(document).on('click','#submit',function()
+ {  $("#captcha_message").hide();
+var response = grecaptcha.getResponse();
+if(response.length == 0)
+{
+$("#captcha_message").html("Please verify you are not a robot");
+              $("#captcha_message").show();
+return false;
+}
+else{
+$("#captcha_message").hide();
+return true;
+}
+ });
+
+
+</script>
     <style>
         
 .button {
@@ -26,6 +49,14 @@
 
 /* .button1 {background-color: #4CAF50;} Green */
 .button2 {background-color: #008CBA;} /* Blue */
+.error_form
+{
+top: 12px;
+color: rgb(216, 15, 15);
+    font-size: 15px;
+font-weight:bold;
+    font-family: Helvetica;
+}
 </style>
 
 
@@ -33,6 +64,25 @@
     
 </head>
 <body>
+<script type="text/javascript">
+ 
+ $(document).on('click','#log',function()
+ {  $("#captcha_message").hide();
+var response = grecaptcha.getResponse();
+if(response.length == 0)
+{
+$("#captcha_message").html("Please verify you are not a robot");
+              $("#captcha_message").show();
+return false;
+}
+else{
+$("#captcha_message").hide();
+return true;
+}
+ });
+
+
+</script>
     <?php
 
     //learn from w3schools.com
@@ -181,7 +231,8 @@
 
             <tr>
                 <td>
-                <div class="g-recaptcha" data-sitekey="6Ldu9ccjAAAAAE1Dqm5AlVMdz9Vps4eBTb2mmbVP"></div>
+                      <span class="error_form" id="captcha_message"></span>
+                <div class="g-recaptcha" data-sitekey="6Ldu9ccjAAAAAE1Dqm5AlVMdz9Vps4eBTb2mmbVP"></div><br>
                     <input type="submit" id="log" value="Login" class="login-btn btn-primary btn">
                 </td>
             </tr>
