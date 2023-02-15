@@ -71,10 +71,10 @@ if($_POST){
             </tr>
             <tr>
                 <td class="label-td">
-                    <input type="text" name="fname" class="input-text" placeholder="First Name" required>
+                    <input type="text" name="fname" class="input-text" placeholder="First Name" onkeyup="validateName()" required>
                 </td>
                 <td class="label-td">
-                    <input type="text" name="lname" class="input-text" placeholder="Last Name" required>
+                    <input type="text" name="lname" class="input-text" placeholder="Last Name"  onkeyup="validateName()"required>
                 </td>
             </tr>
             <tr>
@@ -84,7 +84,7 @@ if($_POST){
             </tr>
             <tr>
                 <td class="label-td" colspan="2">
-                    <input type="text" name="address" class="input-text" placeholder="Address" required>
+                    <input type="text" name="address" class="input-text" placeholder="Address"   required>
                 </td>
             </tr>
             <!-- <tr>
@@ -136,5 +136,36 @@ if($_POST){
 
     </div>
 </center>
+<script>
+    function validateName()
+{ 
+  var letters = /^[A-Z,a-z ]*$/;
+  var fnamevalue =document.getElementById('name');
+  var regex = /^\s/;
+  if(fnamevalue.value.match(regex))
+  {
+    text="No white space allowed";
+    document.getElementById('name_err').innerHTML = text;
+    document.getElementById('signup_btn').disabled = true;
+    return true;
+  }
+  if(fnamevalue.value.match(letters) && fnamevalue.value.length>=3 ) 
+  {
+    text="";
+    document.getElementById('name_err').innerHTML = text;
+    document.getElementById('signup_btn').disabled = false;
+    return false;
+  }
+  else
+  {
+    text="Name should contain only alphabets and atleast 3 characters";
+    document.getElementById('name_err').innerHTML = text;
+    document.getElementById('signup_btn').disabled = true;
+    return true;
+  }
+}
+
+
+
 </body>
 </html>

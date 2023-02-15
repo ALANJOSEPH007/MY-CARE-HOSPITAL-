@@ -57,8 +57,8 @@ if($_POST){
     $dob=$_SESSION['personal']['dob'];
     $email=$_POST['newemail'];
     $tele=$_POST['tele'];
-    $newpassword=$_POST['newpassword'];
-    $cpassword=$_POST['cpassword'];
+    $newpassword=md5($_POST['newpassword']);
+    $cpassword=md5($_POST['cpassword']);
     $code = mysqli_real_escape_string($database, md5(rand()));
     
     if ($newpassword==$cpassword){
@@ -137,7 +137,7 @@ if($_POST){
             </tr>
             <tr>
                 <td class="label-td" colspan="2">
-                    <input type="email" name="newemail" class="input-text" placeholder="Email Address" required>
+                    <input type="email" name="newemail" class="input-text" placeholder="Email Address"  onkeyup="validateEmail()"  required>
                 </td>
                 
             </tr>
@@ -148,7 +148,7 @@ if($_POST){
             </tr>
             <tr>
                 <td class="label-td" colspan="2">
-                    <input type="tel" name="tele" class="input-text"  placeholder="ex: 0712345678" pattern="[0-9]{10}" >
+                    <input type="tel" name="tele" class="input-text"  placeholder="ex: 0712345678" pattern="[0-9]{10}" onkeyup="validatePhone()" required >
                 </td>
             </tr>
             <tr>
@@ -158,7 +158,7 @@ if($_POST){
             </tr>
             <tr>
                 <td class="label-td" colspan="2">
-                    <input type="password" name="newpassword" class="input-text" placeholder="New Password" required>
+                    <input type="password" name="newpassword" class="input-text" placeholder="New Password" onkeyup="validatePassword()" required>
                 </td>
             </tr>
             <tr>
@@ -168,7 +168,7 @@ if($_POST){
             </tr>
             <tr>
                 <td class="label-td" colspan="2">
-                    <input type="password" name="cpassword" class="input-text" placeholder="Conform Password" required>
+                    <input type="password" name="cpassword" class="input-text" placeholder="Conform Password"   onkeyup="validateConfirm()" required>
                 </td>
             </tr>
      
@@ -211,6 +211,83 @@ function myFunction() {
     txt = "You pressed OK!";
   } 
   document.getElementById("demo").innerHTML = txt;
+}
+function validateEmail()
+{
+  var emailvalue =document.getElementById('email');
+  var mailformat=/^[a-z,A-Z,0-9][a-z,A-Z,0-9,_,.]*@[a-z]{3,5}\.[a-z]{2,3}$/;
+  if (emailvalue.value.match(mailformat)) {
+    text="";
+    document.getElementById('mail_err').innerHTML = text;
+    document.getElementById('signup_btn').disabled = false;
+    return false;
+  }     
+  else {
+    text="Invalid email format.";
+    document.getElementById('mail_err').innerHTML = text;
+    document.getElementById('signup_btn').disabled = true;
+    return true;
+  }
+}
+
+function validatePhone()
+{
+  var phonevalue =document.getElementById('phone');
+  var format=/^[6-9]\d{9}/;
+  if(phonevalue.value.length==10 && phonevalue.value.match(format))
+  {
+    text="";
+    document.getElementById('ph_err').innerHTML = text;
+    document.getElementById('signup_btn').disabled = false;
+    return false;
+  }
+  else
+  {
+    text="Invalid Phone Number";
+    document.getElementById('ph_err').innerHTML = text;
+    document.getElementById('signup_btn').disabled = true;
+    return true;
+  }
+}
+function validatePassword() 
+{
+  var password =document.getElementById('password');
+  var pformat=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
+  if(password.value.match(pformat))
+  {
+    text="";
+    document.getElementById('pwd_err').innerHTML = text;
+    document.getElementById('signup_btn').disabled = false;
+    return false;
+  }
+  else {
+    text="Password should contain atleast one capital letter, special character and a number";
+    document.getElementById('pwd_err').innerHTML = text;
+    document.getElementById('signup_btn').disabled = true;
+    return true;
+  }
+}
+
+function validateConfirm() 
+{ 
+  var password =document.getElementById('password');
+  var cpassword =document.getElementById('cpassword');
+  var x=passwordvalue.value;
+  var y=cpasswordvalue.value;
+  if (x === y) 
+  { 
+    text="";
+    document.getElementById('cpwd_err').innerHTML = text;
+    document.getElementById('signup_btn').disabled = false;
+    return false;
+  }
+  else 
+  {
+    text="Password does not match";
+    document.getElementById('cpwd_err').innerHTML = text;
+    document.getElementById('signup_btn').disabled = true;
+    return true;
+  }
 }
 </script>
 </body>

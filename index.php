@@ -6,13 +6,7 @@
 <head>
 
      <title>MYCARE HOSPITAL</title>
-<!--
 
-Template 2098 Health
-
-http://www.tooplate.com/view/2098-health
-
--->
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
      <meta name="description" content="">
@@ -32,7 +26,7 @@ http://www.tooplate.com/view/2098-health
      <script type="text/javascript">
     (function(d, m){
         var kommunicateSettings = 
-            {"appId":"17f84478502da9cd88708aa054c4525ac","popupWidget":true,"automaticChatOpenOnNavigation":true};
+            {"appId":"1898b1d74c25fb3c7779c7c8f8672a487","popupWidget":true,"automaticChatOpenOnNavigation":true};
         var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
         s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
         var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
@@ -109,7 +103,7 @@ function closeForm() {
 
      <!-- MENU -->
      <section class="navbar navbar-default navbar-static-top" role="navigation">
-          <div class="container">
+          <div id="google_element"class="container">
 
                <div class="navbar-header">
                     <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -127,14 +121,20 @@ function closeForm() {
                     <ul class="nav navbar-nav navbar-right">
                          <li><a href="#top" class="smoothScroll">Home</a></li>
                          <li><a href="#about" class="smoothScroll">About Us</a></li>
-                         <!-- <li><a href="#team" class="smoothScroll">Doctors</a></li> -->
+                         <li><a href="department.php" class="smoothScroll">Department</a></li> -->
                          <li><a href="signup.php" class="smoothScroll">SIGNUP</a></li>
                          <li><a href="contact.html" class="smoothScroll">Contact</a></li>
                          <li><a href="login.php" class="smoothScroll">LOGIN</a></li>
                          <li class="appointment-btn"><a href="#appointment">Make an appointment</a></li>
                     </ul>
                </div>
-
+               <div class="login-option" id ="google_element">
+                            <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+                            <script >
+                                function loadGoogleTranslate(){
+                                   new google.translate.TranslateElement("google_element");
+                                }
+                            </script>
           </div>
      </section>
 
@@ -158,7 +158,7 @@ function closeForm() {
                               <div class="item item-second">
                                    <div class="caption">
                                         <div class="col-md-offset-1 col-md-10">
-                                             <h3>Aenean luctus lobortis tellus</h3>
+                                             <h3>Improvement of health via the prevention, diagnosis, treatment, amelioration or cure of disease, illness, injury, and other physical and mental impairments in people</h3>
                                              <h1>New Lifestyle</h1>
                                              <a href="#about" class="section-btn btn btn-default btn-gray smoothScroll">More About Us</a>
                                         </div>
@@ -168,7 +168,7 @@ function closeForm() {
                               <div class="item item-third">
                                    <div class="caption">
                                         <div class="col-md-offset-1 col-md-10">
-                                             <h3>Pellentesque nec libero nisi</h3>
+                                             <h3>Protects you and your family from financial losses in the same way that home or car insurance does. </h3>
                                              <h1>Your Health Benefits</h1>
                                              <!-- <a href="#news" class="section-btn btn btn-default btn-blue smoothScroll">Read Stories</a> -->
                                         </div>
@@ -190,22 +190,25 @@ function closeForm() {
                          <div class="about-info">
                               <h2 class="wow fadeInUp" data-wow-delay="0.6s">Welcome to Your Health Center</h2>
                               <div class="wow fadeInUp" data-wow-delay="0.8s">
-                                   <p>CARE Hospitals delivers comprehensive care in over 30 specialities. Adopting a service-oriented delivery model, CARE Hospitals provides cost-effective medical care, with an uncompromising commitment to its core purpose – ‘To make quality healthcare accessible at affordable costs to all’</p>
-                                   <h4>Our Vision, Mission and Values</h4>
-                                   <p> Vision: To be a trusted, people-centric integrated healthcare system as a model for global healthcare
-
-Mission: To provide the best and cost-effective care, accessible to every patient through integrated clinical practice, education and research.
-
-Values:
-
-Transparency: Being transparent requires courage and we stand for transparency. Every aspect of our business is clear and comprehensive to the relevant stakeholder and we never compromise on the fundamentals at any cost.
-Teamwork: A collaborative work ecosystem is where all the collective efficiencies are harnessed and propelled towards delivering the best possible care.
-Empathy & Compassion: The ability to understand and respond to the feelings of both the patients and the employees, so that all the services are rendered in a supportive work environment with a humane touch.
-Excellence: When every action aims at enhancing quality, the outcome is always excellence. Each member in our team strives with the same intensity in every action, be it healthcare or any other dimension of the organisational processes.
-Education: Learning continuously to create an advanced and sustainable healthcare system that results in collective growth of both the employees and the organization.
-Equity: Mutual trust based on fair and impartial consideration of all professional matters, so that it can foster positive contribution towards the institutional purpose.
-Mutual trust & respect: We do not discriminate against anyone on any grounds. Respect is a traditional trait in us and we respect everyone, for we believe that trust grows respect, which forms the foundation of real success.</p>
-                              </div>
+                                   <p>MYCARE Hospitals delivers comprehensive care in over 30 specialities. Adopting a service-oriented delivery model, CARE Hospitals provides cost-effective medical care, with an uncompromising commitment to its core purpose – ‘To make quality healthcare accessible at affordable costs to all’</p>
+                                   <h3>Our Vision, Mission and Values</h3>
+                                   <div class="wow fadeInUp" data-wow-delay="0.10s">
+                                   <h4> Vision</h4>
+<p> To be a trusted, people-centric integrated healthcare system as a model for global healthcare</p>
+<div class="wow fadeInUp" data-wow-delay="0.10s">
+<h4>Mission</h4>
+<p>To provide the best and cost-effective care, accessible to every patient through integrated clinical practice, education and research.</p>
+<div class="wow fadeInUp" data-wow-delay="0.10s">
+<h4>Values</h4>
+<ul>
+<li><b>Transparency:</b> Being transparent requires courage and we stand for transparency. Every aspect of our business is clear and comprehensive to the relevant stakeholder and we never compromise on the fundamentals at any cost.</li>
+<li><b>Teamwork:</b> A collaborative work ecosystem is where all the collective efficiencies are harnessed and propelled towards delivering the best possible care.</li>
+<li><b>Empathy & Compassion:</b> The ability to understand and respond to the feelings of both the patients and the employees, so that all the services are rendered in a supportive work environment with a humane touch.</li>
+<li><b>Excellence: </b> When every action aims at enhancing quality, the outcome is always excellence. Each member in our team strives with the same intensity in every action, be it healthcare or any other dimension of the organisational processes.</li>
+<li><b>Education:</b> Learning continuously to create an advanced and sustainable healthcare system that results in collective growth of both the employees and the organization.</li>
+<li><b>Equity:</b> Mutual trust based on fair and impartial consideration of all professional matters, so that it can foster positive contribution towards the institutional purpose.</li>
+<li><b>Mutual trust & respect:</b> We do not discriminate against anyone on any grounds. Respect is a traditional trait in us and we respect everyone, for we believe that trust grows respect, which forms the foundation of real success.</li>
+                              </div></div></div></div>
                               <figure class="profile wow fadeInUp" data-wow-delay="1s">
                                    <img src="images/author-image.jpg" class="img-responsive" alt="">
                                    <!-- <figcaption>

@@ -53,7 +53,7 @@ return true;
 {
 top: 12px;
 color: rgb(216, 15, 15);
-    font-size: 15px;
+font-size: 15px;
 font-weight:bold;
     font-family: Helvetica;
 }
@@ -110,7 +110,7 @@ return true;
     if($_POST){
 
         $email=$_POST['useremail'];
-        $password=$_POST['userpassword'];
+        $password=md5($_POST['userpassword']);
         
         $error='<label for="promter" class="form-label"></label>';
 
@@ -120,6 +120,15 @@ return true;
             if ($utype=='p'){
                 $checker = $database->query("select * from patient where pemail='$email' and ppassword='$password'");
                 if ($checker->num_rows==1){
+
+                    foreach($checker as $a)
+                    {
+                        $name=$a['pname'];
+                        $pidd=$a['pid'];
+                    }
+                    //   doctor dashbord
+                    $_SESSION['pname']="$name";
+                    $_SESSION['iddd']="$pidd";
 
 
                     //   Patient dashbord
@@ -150,12 +159,17 @@ return true;
 
             }elseif($utype=='d'){
                 $checker = $database->query("select * from doctor where docemail='$email' and docpassword='$password'");
+                $rw=mysqli_fetch_array($checker);
                 if ($checker->num_rows==1){
 
-
+                    foreach($checker as $a)
+                    {
+                        $name=$a['docname'];
+                    }
                     //   doctor dashbord
-                    $_SESSION['user']=$email;
-                    $_SESSION['usertype']='d';
+                    $_SESSION['docname']="$name";
+                    $_SESSION['user']="$email";
+                    $_SESSION['usertype']="d";
                     header('location: doctor/index.php');
 
                 }else{
@@ -187,7 +201,15 @@ return true;
 
 
     <center>
-    <div class="container">
+    <!-- <div class="login-option" id ="google_element">
+                            <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+                            <script >
+                                function loadGoogleTranslate(){
+                                   new google.translate.TranslateElement("google_element");
+                                }
+                            </script>
+          </div> -->
+    <div id="google-element"class="container">
         <table border="0" style="margin: 0;padding: 0;width: 60%;">
             <tr>
                 <td>
@@ -256,8 +278,8 @@ return true;
             </tr>       
             </form>
         </table>
-
-    </div>
+        
+        
 </center>
 </body>
 </html>
